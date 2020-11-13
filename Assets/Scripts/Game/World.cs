@@ -1,18 +1,37 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class World : MonoBehaviour
+[Serializable]
+public class Word
 {
-    // Start is called before the first frame update
-    void Start()
+    public string word;
+    private int typeIndex;
+    public Word(string text)
     {
-        
+        word = text;
+        typeIndex = 0;
     }
 
-    // Update is called once per frame
-    void Update()
+    public char GetNextLetter()
     {
-        
+        return word[typeIndex];
+    }
+
+    public void TypeLetter()
+    {
+        typeIndex++;
+    }
+
+    public bool WordTyped()
+    {
+        bool wordTyped = (typeIndex >= word.Length);
+        if (wordTyped)
+        {
+            //remove
+        }
+
+        return wordTyped;
     }
 }
