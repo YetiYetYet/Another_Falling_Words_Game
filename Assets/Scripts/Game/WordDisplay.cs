@@ -1,18 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class WordDisplay : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public TextMeshProUGUI text;
+
+    public void SetWord(string word)
     {
-        
+        text.text = word;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void RemoveLetter()
     {
-        
+        text.text = text.text.Remove(0, 1);
+        text.color = Color.green; ;
+    }
+
+    public void RemoveWord()
+    {
+        Destroy(gameObject);
     }
 }

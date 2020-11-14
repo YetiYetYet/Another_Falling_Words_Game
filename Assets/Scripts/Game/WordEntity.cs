@@ -8,10 +8,14 @@ public class WordEntity
 {
     public string word;
     private int typeIndex;
-    public WordEntity(string text)
+
+    public WordDisplay display;
+    public WordEntity(string word, WordDisplay display)
     {
-        word = text;
+        this.word = word;
         typeIndex = 0;
+        this.display = display;
+        display.SetWord(word);
     }
 
     public char GetNextLetter()
@@ -22,6 +26,7 @@ public class WordEntity
     public void TypeLetter()
     {
         typeIndex++;
+        display.RemoveLetter();
     }
 
     public bool WordTyped()
@@ -29,7 +34,7 @@ public class WordEntity
         bool wordTyped = (typeIndex >= word.Length);
         if (wordTyped)
         {
-            //remove
+            display.RemoveWord();
         }
 
         return wordTyped;

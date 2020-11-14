@@ -8,6 +8,8 @@ namespace Game
         public TextAsset sourceTextFile;
         public List<string> copyWordsList;
         public List<string> wordsList;
+
+        public WordSpawner wordSpawner;
         
         public List<WordEntity> wordEntitys;
         
@@ -26,7 +28,8 @@ namespace Game
         
         public void AddRandomWord()
         {
-            WordEntity word = new WordEntity(WordGenerator.GetRandomWordFromList(wordsList, true));
+            WordEntity word = new WordEntity(WordGenerator.GetRandomWordFromList(wordsList, true),
+                wordSpawner.SpawnWord());
             wordEntitys.Add(word);
         }
 
