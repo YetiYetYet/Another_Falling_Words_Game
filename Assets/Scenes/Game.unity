@@ -167,11 +167,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 823bc59ae9b94b819b5abcd045d528f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  words:
-  - word: 
-  - word: 
-  - word: 
-  - word: 
+  sourceTextFile: {fileID: 4900000, guid: 79db49aa7ab229143b7be3c77bbbffd1, type: 3}
+  copyWordsList: []
+  wordsList: []
+  wordEntitys: []
   hasActiveWord: 0
   activeWord:
     word: 
@@ -187,6 +186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b9e95c5813b1f64391c8caa29366834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wordManager: {fileID: 55273504}
 --- !u!1 &107146926
 GameObject:
   m_ObjectHideFlags: 0

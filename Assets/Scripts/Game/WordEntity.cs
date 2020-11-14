@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class Word
+public class WordEntity
 {
     public string word;
     private int typeIndex;
-    public Word(string text)
+    public WordEntity(string text)
     {
         word = text;
         typeIndex = 0;

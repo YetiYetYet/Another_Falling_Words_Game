@@ -1,30 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace UnityTemplateProjects.Game
+namespace Game
 {
     public class WordManager : MonoBehaviour
     {
+        public TextAsset sourceTextFile;
+        public List<string> copyWordsList;
+        public List<string> wordsList;
         
-        public List<Word> words;
-
+        public List<WordEntity> wordEntitys;
+        
         public bool hasActiveWord;
-        public Word activeWord;
+        public WordEntity activeWord;
 
         public void Start()
         {
-            AddWord();
-        }
-
-        public void AddWord()
-        {
-            Word word = new Word(WordGenerator.GetRandomWord());
-            Debug.Log(word.word);
+            wordsList = new List<string>(WordGenerator.GetWordListFromTextAsset(sourceTextFile, true));
+            copyWordsList = new List<string>(wordsList);
             
-            words.Add(word);
+            AddRandomWord();
+            AddRandomWord();
+        }
+        
+        
+        public void AddRandomWord()
+        {
+            WordEntity word = new WordEntity(WordGenerator.GetRandomWordFromList(wordsList, true));
+            wordEntitys.Add(word);
         }
 
+        
         public void TypeLetter(char letter)
         {
             if (hasActiveWord)
@@ -36,7 +42,7 @@ namespace UnityTemplateProjects.Game
             }
             else
             {
-                foreach (var word in words)
+                foreach (var word in wordEntitys)
                 {
                     if (word.GetNextLetter() == letter)
                     {
@@ -51,7 +57,7 @@ namespace UnityTemplateProjects.Game
             if (hasActiveWord && activeWord.WordTyped())
             {
                 hasActiveWord = false;
-                words.Remove(activeWord);
+                wordEntitys.Remove(activeWord);
             }
         }
     }

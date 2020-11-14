@@ -1,11 +1,14 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using Game;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class WordInput : MonoBehaviour
+public class KeyboardInput : MonoBehaviour
 {
-
+    public WordManager wordManager;
+    
     // Update is called once per frame
     void Start()
     {
@@ -14,6 +17,7 @@ public class WordInput : MonoBehaviour
 
     public void OnTextInput(char ch)
     {
-        Debug.Log(ch);
+        
+        wordManager.TypeLetter(ch);
     }
 }

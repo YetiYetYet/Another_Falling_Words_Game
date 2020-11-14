@@ -1,31 +1,50 @@
-﻿
-
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
 using UnityEngine;
+using UnityEngine.Assertions;
+using Random = UnityEngine.Random;
 
-namespace UnityTemplateProjects.Game
+namespace Game
 {
     public class WordGenerator
     {
-        private static string[] wordList = {"sidewalk", "robin", "three", "protect", "periodic",
-            "somber", "majestic", "jump", "pretty", "wound", "jazzy",
-            "memory", "join", "crack", "grade", "boot", "cloudy", "sick",
-            "mug", "hot", "tart", "dangerous", "mother", "rustic", "economic",
-            "weird", "cut", "parallel", "wood", "encouraging", "interrupt",
-            "guide", "long", "chief", "mom", "signal", "rely", "abortive",
-            "hair", "representative", "earth", "grate", "proud", "feel",
-            "hilarious", "addition", "silent", "play", "floor", "numerous",
-            "friend", "pizzas", "building", "organic", "past", "mute", "unusual",
-            "mellow", "analyse", "crate", "homely", "protest", "painstaking",
-            "society", "head", "female", "eager", "heap", "dramatic", "present",
-            "sin", "box", "pies", "awesome", "root", "available", "sleet", "wax",
-            "boring", "smash", "anger", "tasty", "spare", "tray", "daffy", "scarce",
-            "account", "spot", "thought", "distinct", "nimble", "practise", "cream",
-            "ablaze", "thoughtless", "love", "verdict", "giant"    };
+        private static string[] wordTestList = {"sidewalk", "robin", "three", "protect", "periodic" };
         
-        public static string GetRandomWord()
+        public static List<string> GetWordListFromTextAsset(TextAsset textAsset, bool removeDuplicate)
         {
-            int randomIndex = Random.Range(0, wordList.Length);
+            Assert.IsNotNull(textAsset);
+            List<string> wordList = new List<string>(Regex.Split(textAsset.text, @"\s").Where(s => s != ""));
+            if (removeDuplicate) wordList = wordList.Distinct().ToList();
+            return wordList;
+        }
+        
+        public static List<string> GetWordListFromPathFile(string path, bool removeDuplicate)
+        {
+            TextAsset textAsset = Resources.Load<TextAsset>(path);
+            Assert.IsNotNull(textAsset);
+            List<string> wordList = new List<string>(Regex.Split(textAsset.text, @"\s").Where(s => s != ""));
+            if (removeDuplicate) wordList = wordList.Distinct().ToList();
+            return wordList;
+        }
+
+        public static string GetRandomWordFromList(List<string> wordList, bool removeWordFromList)
+        {
+            Assert.AreNotEqual(0, wordList.Count);
+            int randomIndex = Random.Range(0, wordList.Count);
             string randomWord = wordList[randomIndex];
+            
+            if(removeWordFromList)
+                wordList.RemoveAt(randomIndex);
+            
+            return randomWord;
+        }
+        
+        public static string GetRandomTestWord()
+        {
+            int randomIndex = Random.Range(0, wordTestList.Length);
+            string randomWord = wordTestList[randomIndex];
 
             return randomWord;
         }
