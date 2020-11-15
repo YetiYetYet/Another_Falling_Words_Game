@@ -12,7 +12,7 @@ namespace Game
         public WordSpawner wordSpawner;
         
         public List<WordEntity> wordEntitys;
-        
+
         public bool hasActiveWord;
         public WordEntity activeWord;
 
@@ -20,9 +20,6 @@ namespace Game
         {
             wordsList = new List<string>(WordGenerator.GetWordListFromTextAsset(sourceTextFile, true));
             copyWordsList = new List<string>(wordsList);
-            
-            AddRandomWord();
-            AddRandomWord();
         }
         
         
@@ -61,6 +58,19 @@ namespace Game
             {
                 hasActiveWord = false;
                 wordEntitys.Remove(activeWord);
+            }
+        }
+
+        public void RemoveWord(string wordName)
+        {
+            for(int i = 0; i < wordEntitys.Count; i++)
+            {
+                if (wordEntitys[i].word == wordName)
+                {
+                    if (wordEntitys[i] == activeWord) hasActiveWord = false;
+                    wordEntitys[i].display.RemoveWord();
+                    wordEntitys.Remove(wordEntitys[i]);
+                }
             }
         }
     }

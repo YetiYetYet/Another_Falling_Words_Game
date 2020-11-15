@@ -10,23 +10,56 @@ namespace Game
     {
         public GameObject wordPrefab;
         public Canvas canvas;
+        public Transform target;
+        public float spawnOffset;
 
-        private Vector2 _screenBounds;
+
 
         private void Start()
         {
-            Assert.IsNotNull(Camera.main);
-            
+
         }
 
         public WordDisplay SpawnWord()
         {
-            RectTransform rectTransform = canvas.GetComponent<RectTransform>();
-            //positionX = 
+            Vector3 position = GeTRandomPositionArroundScreen();
             
-            GameObject wordObj = Instantiate(wordPrefab, transform);
+            GameObject wordObj = Instantiate(wordPrefab, position, transform.rotation);
+            wordObj.transform.SetParent(transform, false);
             WordDisplay wordDisplay = wordObj.GetComponent <WordDisplay>();
+            wordDisplay.target = target;
+            
             return wordDisplay;
+        }
+
+        public Vector3 GeTRandomPositionArroundScreen()
+        {
+            Rect rect = canvas.GetComponent<RectTransform>().rect;
+            float width = rect.width / 2;
+            float height = rect.height / 2;
+
+            float positionX = Random.Range(-width, width);
+            float positionY = Random.Range(-height, height);
+
+            int dir = Random.Range(0, 4);
+            
+            switch (dir)
+            {
+                case 0: // Top
+                    positionY = height + spawnOffset;
+                    break;
+                case 1: // Bot
+                    positionY = -height - spawnOffset;
+                    break;
+                case 2: // Left
+                    positionX = -width - spawnOffset;
+                    break;
+                case 3: // Right
+                    positionX = width + spawnOffset;
+                    break;
+            }
+            
+            return new Vector3(positionX, positionY, 0f);
         }
     }
 }

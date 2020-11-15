@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5853862295437180962}
   - component: {fileID: 5889149742774888087}
   - component: {fileID: 6116017808396295126}
+  - component: {fileID: -2611635316765715666}
   m_Layer: 5
   m_Name: Word
   m_TagString: Untagged
@@ -147,4 +148,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5916125b81092be4c9ca2243477f2c72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  originalText: 
   text: {fileID: 5889149742774888087}
+  speed: 75
+  target: {fileID: 0}
+--- !u!58 &-2611635316765715666
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4075541974738772952}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 21

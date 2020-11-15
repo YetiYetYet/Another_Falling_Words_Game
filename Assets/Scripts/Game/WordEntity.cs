@@ -39,4 +39,9 @@ public class WordEntity
 
         return wordTyped;
     }
+
+    public void RemoveWord()
+    {
+        display.RemoveWord();
+    }
 }
