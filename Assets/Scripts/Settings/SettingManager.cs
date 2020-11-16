@@ -160,8 +160,6 @@ public class SettingManager : MonoBehaviour
         volumeMasterSlider.value = gameSettings.volumeMaster;
         volumeMusicSlider.value = gameSettings.volumeMusic;
         volumeSfxSlider.value = gameSettings.volumeSfx;
-
-        keyBindingDropdown.value = gameSettings.keyBinding;
     }
     
 }

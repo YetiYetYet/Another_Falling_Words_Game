@@ -104,6 +104,14 @@ namespace Audio
             Sound sound = FindSound(soundName);
             sound.source.Stop();
         }
+
+        public void StopAll()
+        {
+            foreach (var sound in sounds)
+            {
+                sound.source.Stop();
+            }
+        }
     
         public void SetVolumeSound(string soundName, float volume)
         {

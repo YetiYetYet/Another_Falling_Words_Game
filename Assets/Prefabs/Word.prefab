@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5853862295437180962}
   - component: {fileID: 5889149742774888087}
   - component: {fileID: 6116017808396295126}
+  - component: {fileID: 5961270264236802225}
   - component: {fileID: -2611635316765715666}
   m_Layer: 5
   m_Name: Word
@@ -37,7 +38,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5853862295437180962
 CanvasRenderer:
@@ -150,8 +151,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   originalText: 
   text: {fileID: 5889149742774888087}
-  speed: 75
+  speed: 1
   target: {fileID: 0}
+  hurtParticlePrefabs: {fileID: 5250470989465646347, guid: 3ec15c503c13f594e8ae6fdf22a6f1b0, type: 3}
+  dieParticleContainer: {fileID: 3555162761742411828, guid: 7da54be89644144469cd0db5d216a1ec, type: 3}
+  particleContainer: {fileID: 0}
+--- !u!114 &5961270264236802225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4075541974738772952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48a6098652afde04ea641242ea623917, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fonts:
+  - {fileID: 11400000, guid: 2d419fbf9912571458467901990dee5f, type: 2}
+  - {fileID: 11400000, guid: 3f7979f14e9e29a4bb8e3b1c0175d31e, type: 2}
+  - {fileID: 11400000, guid: 4de834ba1cbc2a84f8da0f3de24132d2, type: 2}
+  - {fileID: 11400000, guid: b89ccd1de45b8704186baf7e0f4918b8, type: 2}
+  - {fileID: 11400000, guid: 2c0e63b88de2b99418b1619571f8ea7e, type: 2}
+  - {fileID: 11400000, guid: 35454567f96c08045ad1b2d671963e6b, type: 2}
+  - {fileID: 11400000, guid: dbe98735359b6d644b7a1889a1341e72, type: 2}
+  - {fileID: 11400000, guid: b07ff6e4935c8534aaf125ae8e2e0e98, type: 2}
+  - {fileID: 11400000, guid: 259ad4092a49f564bab6117c2cab5404, type: 2}
+  - {fileID: 11400000, guid: d1f58adc0d96f534f9c52e0cc9a1c7f4, type: 2}
+  - {fileID: 11400000, guid: 203aa3bcd8d13c44180c9324dd33d4b6, type: 2}
+  - {fileID: 11400000, guid: bfd2041c92679144aaf1671057b03061, type: 2}
+  - {fileID: 11400000, guid: d382374c3b620014493eec3bd8024b6d, type: 2}
+  - {fileID: 11400000, guid: 0a3fa24e81790b147ab8f8543c8023f7, type: 2}
 --- !u!58 &-2611635316765715666
 CircleCollider2D:
   m_ObjectHideFlags: 0

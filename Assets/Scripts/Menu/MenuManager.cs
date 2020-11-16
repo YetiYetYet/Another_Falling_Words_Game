@@ -22,6 +22,8 @@ public class MenuManager : MonoBehaviour
         mainMenu.SetActive(true);
         settingsMenu.SetActive(false);
         creditMenu.SetActive(false);
+        AudioManager.Instance.StopAll();
+        AudioManager.Instance.Play("MenuMusic");
     }
     
     public void SwapMenu(string menu)
@@ -31,27 +33,27 @@ public class MenuManager : MonoBehaviour
         {
             case "Main" :
                 mainMenu.SetActive(true);
-                AudioManager.Instance.Play("Back");
                 break;
             case "Settings" : 
                 settingsMenu.SetActive(true);
-                AudioManager.Instance.Play("Settings");
                 break;
             case "Credits" :
                 creditMenu.SetActive(true);
-                AudioManager.Instance.Play("Credits");
                 break;
             default:
                 Debug.Log("Wrong Argument");
                 break;
         }
+        AudioManager.Instance.Play("ButtonClick");
         
     }
 
     public void LauchGame()
     {
-        AudioManager.Instance.Play("Play");
-        SceneManager.LoadScene("MainLevel");
+        AudioManager.Instance.Play("ButtonClick");
+        AudioManager.Instance.Stop("MenuMusic");
+        AudioManager.Instance.Play("GameMusic");
+        SceneManager.LoadScene("Scenes/Game");
     }
 
     public void QuitGame()
