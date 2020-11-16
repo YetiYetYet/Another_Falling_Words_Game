@@ -8,16 +8,13 @@ using UnityEngine.InputSystem;
 public class KeyboardInput : MonoBehaviour
 {
     public WordManager wordManager;
-    
-    // Update is called once per frame
-    void Start()
-    {
-        Keyboard.current.onTextInput += OnTextInput;
-    }
 
-    public void OnTextInput(char ch)
+    // Update is called once per frame
+    void Update()
     {
-        
-        wordManager.TypeLetter(ch);
+        foreach (char letter in Input.inputString)
+        {
+            wordManager.TypeLetter(letter);
+        }
     }
 }

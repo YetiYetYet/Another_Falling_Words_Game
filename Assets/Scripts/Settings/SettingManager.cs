@@ -28,7 +28,7 @@ public class SettingManager : MonoBehaviour
     {
         gameSettings = new GameSettings();
 
-        InitResolutions();
+        //InitResolutions();
         
         _audioManager = AudioManager.Instance;
         Assert.IsNotNull(_audioManager);
@@ -71,12 +71,12 @@ public class SettingManager : MonoBehaviour
     public void InitListener()
     {
         fullscreenToggle.onValueChanged.AddListener(delegate { OnFullScreenToggle(); });
-        resolutionDropdown.onValueChanged.AddListener(delegate { OnResolutionChange(); });
+        //resolutionDropdown.onValueChanged.AddListener(delegate { OnResolutionChange(); });
         qualityDropdown.onValueChanged.AddListener(delegate { OnQualityChange(); });
         volumeMasterSlider.onValueChanged.AddListener(delegate { OnMasterVolumeChange(); });
         volumeMusicSlider.onValueChanged.AddListener(delegate { OnMusicVolumeChange(); });
         volumeSfxSlider.onValueChanged.AddListener(delegate { OnSfxVolumeChange(); });
-        keyBindingDropdown.onValueChanged.AddListener(delegate { OnKeyBindingChange(); });
+        //keyBindingDropdown.onValueChanged.AddListener(delegate { OnKeyBindingChange(); });
     }
 
     public void OnFullScreenToggle()

@@ -29,10 +29,12 @@ namespace Utils
         }
 
         // Update is called once per frame
-        void LateUpdate()
+        void FixedUpdate()
         {
             if(rotate)
                 _transform.Rotate(0, speedRotation * Time.deltaTime, 0);
+            
+            Debug.Log(_initialPosition);
 
             _transform.position = new Vector3(_transform.position.x ,(float) (_initialPosition.y + Math.Sin(Time.time * speedBounce) * bounceIntensity), _transform.position.z);
         }
