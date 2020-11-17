@@ -1,6 +1,6 @@
 # Another Word Falling Game
 
-A little game where you need to type words before they reach you. 
+A little game where you need to type words before they reach you. Time increase difficulty 
 
 [Demo Available Here](https://simmer.io/@YetiYetYet/another-falling-word-game)
 
